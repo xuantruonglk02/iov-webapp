@@ -1,16 +1,28 @@
 <script setup lang="ts">
 import HeaderNotification from './HeaderNotification.vue';
 import HeaderUser from './HeaderUser.vue';
+import HeaderAsideButton from './HeaderAsideButton.vue';
+import HeaderSearchBar from './HeaderSearchBar.vue';
 </script>
 
 <template>
   <el-header class="header-ctn">
-    <el-row class="header" justify="end" align="middle" :gutter="20">
-      <el-col>
-        <HeaderNotification />
+    <el-row class="header" justify="space-between" align="middle">
+      <el-col class="header-btn-ctn">
+        <HeaderAsideButton />
+      </el-col>
+      <el-col :span="24">
+        <HeaderSearchBar />
       </el-col>
       <el-col>
-        <HeaderUser />
+        <el-row align="middle" :gutter="20">
+          <el-col class="header-btn-ctn">
+            <HeaderNotification />
+          </el-col>
+          <el-col class="header-btn-ctn">
+            <HeaderUser />
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
   </el-header>
@@ -20,12 +32,21 @@ import HeaderUser from './HeaderUser.vue';
 .header-ctn {
   background-color: white;
 }
+
 .header {
   height: 100%;
   margin: 0 !important;
   border-bottom: 1px solid $color-border-main;
+
   .el-col {
     flex: none;
+  }
+}
+
+.header-btn-ctn {
+  :deep(.el-icon), :deep(svg) {
+    width: 24px;
+    height: 24px;
   }
 }
 </style>

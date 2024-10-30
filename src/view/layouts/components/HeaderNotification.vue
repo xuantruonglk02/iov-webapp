@@ -5,7 +5,7 @@ import { Bell } from '@element-plus/icons-vue';
 <template>
   <el-dropdown trigger="click">
     <div>
-      <Bell style="width: 24px; height: 24px;" />
+      <Bell />
     </div>
     <template #dropdown>
       <el-empty description="description" />

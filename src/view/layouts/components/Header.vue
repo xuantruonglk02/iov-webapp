@@ -3,42 +3,44 @@ import HeaderNotification from './HeaderNotification.vue';
 import HeaderUser from './HeaderUser.vue';
 import HeaderAsideButton from './HeaderAsideButton.vue';
 import HeaderSearchBar from './HeaderSearchBar.vue';
+import { useAppStore } from 'src/stores/appStore.ts';
+
+const appStore = useAppStore();
 </script>
 
 <template>
-  <el-header class="header-ctn">
-    <el-row class="header" justify="space-between" align="middle">
-      <el-col class="header-btn-ctn">
-        <HeaderAsideButton />
-      </el-col>
-      <el-col :span="24">
-        <HeaderSearchBar />
-      </el-col>
-      <el-col>
-        <el-row align="middle" :gutter="20">
-          <el-col class="header-btn-ctn">
-            <HeaderNotification />
-          </el-col>
-          <el-col class="header-btn-ctn">
-            <HeaderUser />
-          </el-col>
-        </el-row>
-      </el-col>
-    </el-row>
-  </el-header>
+  <div class="position-relative w-100" :style="`height: ${appStore.headerHeight}px`">
+    <el-header class="header-ctn position-absolute w-100 z-1" :height="`${appStore.headerHeight}px`">
+      <el-row class="header" justify="space-between" align="middle">
+        <el-col class="header-btn-ctn">
+          <HeaderAsideButton />
+        </el-col>
+        <el-col :span="24">
+          <HeaderSearchBar />
+        </el-col>
+        <el-col>
+          <el-row align="middle" :gutter="20">
+            <el-col class="header-btn-ctn">
+              <HeaderNotification />
+            </el-col>
+            <el-col class="header-btn-ctn">
+              <HeaderUser />
+            </el-col>
+          </el-row>
+        </el-col>
+      </el-row>
+    </el-header>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .header-ctn {
   background-color: white;
-  padding: 0 6px;
+  border-bottom: 1px solid $color-border-main;
 }
 
 .header {
   height: 100%;
-  margin: 0 !important;
-  padding: 0 16px;
-  border-bottom: 1px solid $color-border-main;
 
   .el-col {
     flex: none;

@@ -31,11 +31,13 @@ import HeaderSearchBar from './HeaderSearchBar.vue';
 <style scoped lang="scss">
 .header-ctn {
   background-color: white;
+  padding: 0 6px;
 }
 
 .header {
   height: 100%;
   margin: 0 !important;
+  padding: 0 16px;
   border-bottom: 1px solid $color-border-main;
 
   .el-col {

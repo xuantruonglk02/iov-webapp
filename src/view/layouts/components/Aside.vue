@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { House } from '@element-plus/icons-vue';
+import { useAppStore } from 'src/stores/appStore.ts';
+
+const appStore = useAppStore();
 </script>
 
 <template>
@@ -8,12 +11,14 @@ import { House } from '@element-plus/icons-vue';
       <el-menu :default-openeds="['1', '3']">
         <el-menu-item index="1">
           <template #title>
-            <el-icon><House /></el-icon>Home
+            <el-icon><House /></el-icon>
+            <span v-if="!appStore.asideCollapsed">Home</span>
           </template>
         </el-menu-item>
         <el-menu-item index="2">
           <template #title>
-            <el-icon><House /></el-icon>Dashboard
+            <el-icon><House /></el-icon>
+            <span v-if="!appStore.asideCollapsed">Dashboard</span>
           </template>
         </el-menu-item>
         <!-- <el-sub-menu index="1">

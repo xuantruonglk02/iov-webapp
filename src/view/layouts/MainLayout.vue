@@ -21,14 +21,14 @@ const appStore = useAppStore();
             </router-view>
           </el-main>
         </el-col>
-        <el-col class="container-col">
-          <Toolbar />
-          <el-main>
-            <router-view v-slot="{ Component }">
-              <component :is="Component" />
-            </router-view>
-          </el-main>
-        </el-col>
+<!--        <el-col class="container-col">-->
+<!--          <Toolbar />-->
+<!--          <el-main>-->
+<!--            <router-view v-slot="{ Component }">-->
+<!--              <component :is="Component" />-->
+<!--            </router-view>-->
+<!--          </el-main>-->
+<!--        </el-col>-->
       </el-row>
     </el-container>
   </el-container>

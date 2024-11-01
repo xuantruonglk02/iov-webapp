@@ -4,8 +4,8 @@ import { ref } from 'vue';
 export const useAppStore = defineStore('app', () => {
   const asideWidth = ref(250);
   const asideCollapsed = ref(false);
-  const headerHeight = ref(64);
-  const toolbarHeight = ref(64);
+  const headerHeight = ref(56);
+  const toolbarHeight = ref(56);
 
   const toggleAsideButton = () => {
     if (asideCollapsed.value === true) {

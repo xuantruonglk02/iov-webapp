@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     BaseExamSessionCard: typeof import('./src/components/base/BaseExamSessionCard.vue')['default']
     BaseQuestionCard: typeof import('./src/components/base/BaseQuestionCard.vue')['default']
+    BaseSaleCard: typeof import('./src/components/base/BaseSaleCard.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']

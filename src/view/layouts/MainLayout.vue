@@ -2,7 +2,6 @@
 import { useAppStore } from 'src/stores/appStore';
 import Aside from './components/Aside.vue';
 import Header from './components/Header.vue';
-import Toolbar from 'src/view/layouts/components/Toolbar.vue';
 
 const appStore = useAppStore();
 </script>
@@ -13,22 +12,9 @@ const appStore = useAppStore();
     <el-container>
       <Aside />
       <el-row class="container-main" :style="`width: calc(100% - ${appStore.asideWidth}px)`">
-        <el-col class="container-col">
-          <Toolbar />
-          <el-main>
-            <router-view v-slot="{ Component }">
-              <component :is="Component" />
-            </router-view>
-          </el-main>
-        </el-col>
-<!--        <el-col class="container-col">-->
-<!--          <Toolbar />-->
-<!--          <el-main>-->
-<!--            <router-view v-slot="{ Component }">-->
-<!--              <component :is="Component" />-->
-<!--            </router-view>-->
-<!--          </el-main>-->
-<!--        </el-col>-->
+        <router-view v-slot="{ Component }">
+          <component :is="Component" />
+        </router-view>
       </el-row>
     </el-container>
   </el-container>
@@ -42,15 +28,5 @@ const appStore = useAppStore();
 
 .container-main {
   background-color: $color-background-main;
-
-  &>.container-col {
-    width: 100%;
-    flex: 1;
-    border-right: 1px solid $color-border-main;
-  }
-
-  &>.container-col:last-of-type {
-    border-right: none !important;
-  }
 }
 </style>

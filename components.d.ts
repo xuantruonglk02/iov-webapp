@@ -11,6 +11,7 @@ declare module 'vue' {
     BaseQuestionCard: typeof import('./src/components/base/BaseQuestionCard.vue')['default']
     BaseSaleCard: typeof import('./src/components/base/BaseSaleCard.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
+    BaseToolbar: typeof import('./src/components/base/BaseToolbar.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -40,5 +41,6 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Toolbar: typeof import('./src/components/base/Toolbar.vue')['default']
   }
 }

@@ -5,6 +5,12 @@
   // $lg: 992px !default,
   // $xl: 1200px !default,
 
+  $colors: (
+    'primary': (
+      'base': rgb(96, 171, 64),
+    ),
+  ),
+
   $font-family: (
     '': "'Inter', sans-serif, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   ),

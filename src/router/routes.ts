@@ -1,17 +1,19 @@
 import MainLayout from 'src/view/layouts/MainLayout.vue';
 import LoginPage from 'src/view/pages/auth/LoginPage.vue';
-import { RouteRecordRaw } from 'vue-router';
-import DashboardPage from 'src/view/pages/home/DashboardPage.vue';
 import CardsPage from 'src/view/pages/components/CardsPage.vue';
+import DrawerPage from 'src/view/pages/components/DrawerPage.vue';
 import TablePage from 'src/view/pages/components/TablePage.vue';
+import DashboardPage from 'src/view/pages/home/DashboardPage.vue';
+import { RouteRecordRaw } from 'vue-router';
 
 export enum PageName {
-  LOGIN_PAGE = 'LoginPage',
+  LOGIN_PAGE = 'LOGIN_PAGE',
 
   DASHBOARD_PAGE = 'DASHBOARD_PAGE',
 
   CARDS_PAGE = 'CARDS_PAGE',
   TABLE_PAGE = 'TABLE_PAGE',
+  DRAWER_PAGE = 'DRAWER_PAGE',
 }
 
 export const routes: Array<RouteRecordRaw> = [
@@ -58,6 +60,14 @@ export const routes: Array<RouteRecordRaw> = [
         path: 'table',
         name: PageName.TABLE_PAGE,
         component: TablePage,
+        meta: {
+          public: true,
+        },
+      },
+      {
+        path: 'drawer',
+        name: PageName.DRAWER_PAGE,
+        component: DrawerPage,
         meta: {
           public: true,
         },

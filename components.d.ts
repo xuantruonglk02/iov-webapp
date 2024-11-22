@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseDrawer: typeof import('./src/components/base/BaseDrawer.vue')['default']
     BaseExamSessionCard: typeof import('./src/components/base/BaseExamSessionCard.vue')['default']
     BaseQuestionCard: typeof import('./src/components/base/BaseQuestionCard.vue')['default']
     BaseSaleCard: typeof import('./src/components/base/BaseSaleCard.vue')['default']
@@ -21,6 +22,7 @@ declare module 'vue' {
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']

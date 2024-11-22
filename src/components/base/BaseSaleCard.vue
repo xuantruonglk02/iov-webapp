@@ -36,10 +36,10 @@ const props = defineProps<Props>();
     </el-row>
     <el-row justify="space-between">
       <el-col>
-        <el-button>VIEW MAP</el-button>
+        <el-button type="primary" link>VIEW MAP</el-button>
       </el-col>
       <el-col>
-        <el-row align="middle">
+        <el-row align="middle" class="h-100">
           <el-button :icon="InfoFilled" link></el-button>
           <el-button :icon="InfoFilled" link></el-button>
         </el-row>

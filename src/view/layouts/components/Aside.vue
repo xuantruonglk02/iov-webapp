@@ -28,6 +28,11 @@ const aside = [
     icon: House,
     to: PageName.CARDS_PAGE,
   },
+  {
+    name: 'Drawer',
+    icon: House,
+    to: PageName.DRAWER_PAGE,
+  },
 ];
 </script>
 

@@ -10,9 +10,10 @@ const isOpeningDrawer = ref(false);
 
   <BaseDrawer v-model="isOpeningDrawer" size="60%">
     <template #header-actions>
-      <el-row>
-        <el-button>â</el-button>
-      </el-row>
+      <v-row no-gutters justify="end">
+        <v-btn>â</v-btn>
+        <v-btn>â</v-btn>
+      </v-row>
     </template>
   </BaseDrawer>
 </template>

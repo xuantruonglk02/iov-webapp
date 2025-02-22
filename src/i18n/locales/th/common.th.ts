@@ -1,5 +1,5 @@
 export default {
-  buttons: {
-    add: 'Add',
-  },
+    buttons: {
+        add: 'Add',
+    },
 };

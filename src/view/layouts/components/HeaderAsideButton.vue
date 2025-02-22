@@ -5,16 +5,16 @@ import { useAppStore } from 'src/stores/appStore.ts';
 const appStore = useAppStore();
 
 const onClickAsideButton = () => {
-  appStore.toggleAsideButton();
-}
+    appStore.toggleAsideButton();
+};
 </script>
 
 <template>
-  <el-button :icon="InfoFilled" circle class="header-aside-btn" @click="onClickAsideButton" />
+    <el-button :icon="InfoFilled" circle class="header-aside-btn" @click="onClickAsideButton" />
 </template>
 
 <style scoped lang="scss">
 .header-aside-btn {
-  border: none;
+    border: none;
 }
 </style>

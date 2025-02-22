@@ -7,8 +7,8 @@ const authStore = useAuthStore();
 console.log(authStore.loggedUser);
 
 onMounted(async () => {
-  const response = await authApiService.login();
-  console.log(response);
+    const response = await authApiService.login();
+    console.log(response);
 });
 </script>
 

@@ -2,11 +2,11 @@ import { defineStore } from 'pinia';
 import { ref, Ref } from 'vue';
 
 export const useAuthStore = defineStore('auth', () => {
-  const loggedUser: Ref<any> = ref(undefined);
+    const loggedUser: Ref<any> = ref(undefined);
 
-  const setLoggedUser = (value: any) => {
-    loggedUser.value = value;
-  };
+    const setLoggedUser = (value: any) => {
+        loggedUser.value = value;
+    };
 
-  return { loggedUser, setLoggedUser };
+    return { loggedUser, setLoggedUser };
 });

@@ -6,13 +6,13 @@ const isOpeningDrawer = ref(false);
 </script>
 
 <template>
-  <button @click="() => isOpeningDrawer = !isOpeningDrawer">Open</button>
+    <button @click="() => (isOpeningDrawer = !isOpeningDrawer)">Open</button>
 
-  <BaseDrawer v-model="isOpeningDrawer" size="60%">
-    <template #header-actions>
-      <el-row>
-        <el-button>â</el-button>
-      </el-row>
-    </template>
-  </BaseDrawer>
+    <BaseDrawer v-model="isOpeningDrawer" size="60%">
+        <template #header-actions>
+            <el-row>
+                <el-button>â</el-button>
+            </el-row>
+        </template>
+    </BaseDrawer>
 </template>

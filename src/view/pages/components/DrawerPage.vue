@@ -8,11 +8,12 @@ const isOpeningDrawer = ref(false);
 <template>
     <button @click="() => (isOpeningDrawer = !isOpeningDrawer)">Open</button>
 
-    <BaseDrawer v-model="isOpeningDrawer" size="60%">
-        <template #header-actions>
-            <el-row>
-                <el-button>â</el-button>
-            </el-row>
-        </template>
-    </BaseDrawer>
+  <BaseDrawer v-model="isOpeningDrawer" size="60%">
+    <template #header-actions>
+      <v-row no-gutters justify="end">
+        <v-btn>â</v-btn>
+        <v-btn>â</v-btn>
+      </v-row>
+    </template>
+  </BaseDrawer>
 </template>

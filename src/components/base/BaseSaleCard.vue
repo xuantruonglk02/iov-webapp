@@ -1,76 +1,51 @@
-<script setup lang="ts">
-import { InfoFilled } from '@element-plus/icons-vue';
-
-interface Props {}
-const props = defineProps<Props>();
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <el-card shadow="hover" style="width: 340px">
-        <el-row align="middle">
-            <el-avatar
-                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                class="me-2"
-            />
-            <el-col class="title d-flex flex-column">
-                <span>Sale Order : SOBU-TESLA</span>
-                <span>Ticket No. : TN8927</span>
-            </el-col>
-        </el-row>
-        <div class="p-0">
-            <img
-                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                class="card-img"
-            />
-        </div>
-        <el-row>
-            <el-col class="d-flex flex-column">
-                <span>70-1220</span>
-                <span>3/22/2023 2:10:00 PM</span>
-            </el-col>
-        </el-row>
-        <el-row>
-            <span
-                >a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
-                a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
-                a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a</span
-            >
-        </el-row>
-        <el-row justify="space-between">
-            <el-col>
-                <el-button type="primary" link>VIEW MAP</el-button>
-            </el-col>
-            <el-col>
-                <el-row align="middle" class="h-100">
-                    <el-button :icon="InfoFilled" link></el-button>
-                    <el-button :icon="InfoFilled" link></el-button>
-                </el-row>
-            </el-col>
-        </el-row>
-    </el-card>
+  <v-card style="width: 340px">
+    <v-row align="center" no-gutters>
+      <v-avatar
+        image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+        class="me-2"
+      />
+      <v-col class="title d-flex flex-column">
+        <span>Sale Order : SOBU-TESLA</span>
+        <span>Ticket No. : TN8927</span>
+      </v-col>
+    </v-row>
+    <div class="p-0">
+      <img
+        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+        class="card-img"
+      />
+    </div>
+    <v-row no-gutters>
+      <v-col class="d-flex flex-column">
+        <span>70-1220</span>
+        <span>3/22/2023 2:10:00 PM</span>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+        <span>a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a</span>
+    </v-row>
+    <v-row justify="space-between" no-gutters>
+      <v-col>
+        <v-btn variant="text">VIEW MAP</v-btn>
+      </v-col>
+      <v-col>
+        <v-row>
+          <v-btn variant="text" icon="$vuetify"></v-btn>
+          <v-btn variant="text" icon="$vuetify"></v-btn>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <style scoped lang="scss">
-:deep(.el-card__body) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-
-    & > .el-row {
-        padding: var(--el-card-padding);
-
-        .el-col {
-            flex: none;
-        }
-    }
-    & > .el-row:first-of-type {
-        padding-top: 0 !important;
-    }
-    & > .el-row:last-of-type {
-        padding-bottom: 0 !important;
-    }
-}
-
-.title {
+.v-card {
+  & > .v-row {
+    padding: $padding-card;
+  }
 }
 
 .card-img {

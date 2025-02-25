@@ -12,7 +12,7 @@ app.use(store);
 app.use(router);
 app.use(i18n);
 
-registerPlugins(app)
+registerPlugins(app);
 
 router.isReady().then(() => {
     app.mount('#app');

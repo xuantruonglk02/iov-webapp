@@ -13,13 +13,17 @@ const router = useRouter()
 const authStore = useAuthStore()
 const loginForm = useLoginForm()
 
+const isLoading = ref(false)
+
 const isDisplayNotification = ref(false)
 const notificationType = ref('success')
 const notificationMessage = ref('')
 
 const login = async () => {
     try {
+        isLoading.value = true
         const user = (await loginForm.submit()) as IUser
+        isLoading.value = false
         if (user) {
             authStore.setUser(user)
             router.push({ name: PageName.DASHBOARD_PAGE })
@@ -49,13 +53,15 @@ const login = async () => {
                         :label="$t('common.base.labels.username')"
                         prepend-inner-icon="mdi-account"
                         variant="outlined"
+                        :disabled="isLoading"
                         :error-messages="loginForm.errors.value.username"
                     />
                     <BaseInputPassword
                         v-model="loginForm.password.value"
+                        :disabled="isLoading"
                         :error-messages="loginForm.errors.value.password"
                     />
-                    <v-btn type="submit">{{ $t('login.submit') }}</v-btn>
+                    <v-btn type="submit" :loading="isLoading">{{ $t('login.submit') }}</v-btn>
                 </v-form>
             </div>
         </div>

@@ -1,0 +1,9 @@
+@use '../variables' as vars;
+
+.v-btn {
+    width: 100% !important;
+    height: 56px !important;
+    border-radius: 8px !important;
+    background-color: vars.$color-primary !important;
+    color: white !important;
+}

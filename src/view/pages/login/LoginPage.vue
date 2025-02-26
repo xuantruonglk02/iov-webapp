@@ -1,19 +1,34 @@
 <script setup lang="ts">
 import BaseInputPassword from 'src/components/base/BaseInputPassword.vue'
 import BaseInputText from 'src/components/base/BaseInputText.vue'
+import BaseNotification from 'src/components/base/BaseNotification.vue'
+import { PageName } from 'src/router/routes'
 import { useAuthStore } from 'src/stores/authStore'
+import { IUser } from 'src/stores/types'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useLoginForm } from './forms/loginForm'
 
+const router = useRouter()
 const authStore = useAuthStore()
 const loginForm = useLoginForm()
 
-// onMounted(async () => {
-//     const response = await authApiService.login()
-//     console.log(response)
-// })
+const isDisplayNotification = ref(false)
+const notificationType = ref('success')
+const notificationMessage = ref('')
 
 const login = async () => {
-    const response = loginForm.submit()
+    try {
+        const user = (await loginForm.submit()) as IUser
+        if (user) {
+            authStore.setUser(user)
+            router.push({ name: PageName.DASHBOARD_PAGE })
+        }
+    } catch (error: any) {
+        notificationType.value = 'error'
+        notificationMessage.value = error.message
+        isDisplayNotification.value = true
+    }
 }
 </script>
 
@@ -45,6 +60,12 @@ const login = async () => {
             </div>
         </div>
     </div>
+
+    <BaseNotification
+        v-model="isDisplayNotification"
+        :type="notificationType as 'success'"
+        :message="notificationMessage"
+    />
 </template>
 
 <style scoped lang="scss">

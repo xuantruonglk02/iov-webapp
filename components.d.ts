@@ -12,6 +12,7 @@ declare module 'vue' {
     BaseInputPassword: typeof import('./src/components/base/BaseInputPassword.vue')['default']
     BaseInputPasword: typeof import('./src/components/base/BaseInputPasword.vue')['default']
     BaseInputText: typeof import('./src/components/base/BaseInputText.vue')['default']
+    BaseNotification: typeof import('./src/components/base/BaseNotification.vue')['default']
     BaseSaleCard: typeof import('./src/components/base/BaseSaleCard.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
     BaseToolbar: typeof import('./src/components/base/BaseToolbar.vue')['default']

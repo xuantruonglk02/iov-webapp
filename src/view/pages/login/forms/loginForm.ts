@@ -1,4 +1,6 @@
+import { jwtDecode } from 'jwt-decode'
 import yup from 'src/plugins/yup'
+import { authApiService } from 'src/services/api/authApiService'
 import { useField, useForm } from 'vee-validate'
 
 const schema = yup.object({
@@ -9,8 +11,8 @@ const schema = yup.object({
 export const useLoginForm = () => {
     const { handleSubmit, errors } = useForm({
         initialValues: {
-            username: undefined,
-            password: undefined,
+            username: undefined as unknown as string,
+            password: undefined as unknown as string,
         },
         validationSchema: schema,
     })
@@ -18,8 +20,9 @@ export const useLoginForm = () => {
     const { value: password } = useField<string>('password')
 
     const submit = handleSubmit(async (values) => {
-        console.log({ values })
-        return { values }
+        const { username, password } = values
+        const response = await authApiService.login({ username, password })
+        return jwtDecode(response.data.access_token)
     })
 
     return {

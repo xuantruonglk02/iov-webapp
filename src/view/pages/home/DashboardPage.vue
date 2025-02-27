@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseToolbar from 'src/components/base/BaseToolbar.vue';
-import MainLayoutPageColumn from 'src/view/layouts/MainLayoutPageColumn.vue';
+import BaseToolbar from 'src/components/base/BaseToolbar.vue'
+import MainLayoutPageColumn from 'src/view/layouts/MainLayoutPageColumn.vue'
 </script>
 
 <template>

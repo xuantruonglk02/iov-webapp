@@ -1,9 +1,24 @@
 <script setup lang="ts">
-import { useAppStore } from 'src/stores/appStore';
-import Aside from './components/Aside.vue';
-import Header from './components/Header.vue';
+import { useAppStore } from 'src/stores/appStore'
+import { useAuthStore } from 'src/stores/authStore'
+import { onBeforeMount } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import Aside from './components/Aside.vue'
+import Header from './components/Header.vue'
 
-const appStore = useAppStore();
+const route = useRoute()
+const router = useRouter()
+const appStore = useAppStore()
+const authStore = useAuthStore()
+
+onBeforeMount(() => {
+    const isPublic = route.meta?.public || false
+    if (isPublic) return
+
+    const user = authStore.user
+    if (!user?.email || user?.role_name !== 'ADMIN')
+        return router.push({ name: 'LoginPage', query: { redirect: route.fullPath } })
+})
 </script>
 
 <template>

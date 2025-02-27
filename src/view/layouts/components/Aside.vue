@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { House } from '@element-plus/icons-vue';
-import { PageName } from 'src/router/routes';
 import { useAppStore } from 'src/stores/appStore.ts';
 import { useRouter } from 'vue-router';
 
@@ -11,27 +10,27 @@ const aside = [
     {
         name: 'Home',
         icon: House,
-        to: PageName.DASHBOARD_PAGE,
+        to: 'DashboardPage',
     },
     {
         name: 'Dashboard',
         icon: House,
-        to: PageName.DASHBOARD_PAGE,
+        to: 'DashboardPage',
     },
     {
         name: 'Table',
         icon: House,
-        to: PageName.TABLE_PAGE,
+        to: 'TablePage',
     },
     {
         name: 'Card',
         icon: House,
-        to: PageName.CARDS_PAGE,
+        to: 'CardsPage',
     },
     {
         name: 'Drawer',
         icon: House,
-        to: PageName.DRAWER_PAGE,
+        to: 'DrawerPage',
     },
 ];
 </script>
@@ -56,7 +55,7 @@ const aside = [
                     <el-divider />
                     <el-menu-item
                         index="index"
-                        @click="router.push({ name: PageName.DASHBOARD_PAGE })"
+                        @click="router.push({ name: 'DashboardPage' })"
                     >
                         <!-- <el-icon>item.icon</el-icon> -->
                         <el-icon><House /></el-icon>
@@ -64,7 +63,7 @@ const aside = [
                     </el-menu-item>
                     <el-menu-item
                         index="index"
-                        @click="router.push({ name: PageName.DASHBOARD_PAGE })"
+                        @click="router.push({ name: 'DashboardPage' })"
                     >
                         <!-- <el-icon>item.icon</el-icon> -->
                         <el-icon><House /></el-icon>

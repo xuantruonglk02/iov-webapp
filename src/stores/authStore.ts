@@ -5,9 +5,21 @@ import { IUser } from './types'
 export const useAuthStore = defineStore('auth', () => {
     const user: Ref<IUser> = ref(null as unknown as IUser)
 
-    const setUser = (value: IUser) => {
-        user.value = value
+    const loadUserFromLocalStorage = () => {
+        const userString = localStorage.getItem('user')
+        if (userString) {
+            try {
+                user.value = JSON.parse(userString)
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 
-    return { user, setUser }
+    const setUser = (value: IUser) => {
+        user.value = value
+        localStorage.setItem('user', JSON.stringify(value))
+    }
+
+    return { user, loadUserFromLocalStorage, setUser }
 })

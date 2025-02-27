@@ -2,13 +2,13 @@
 import BaseInputPassword from 'src/components/base/BaseInputPassword.vue'
 import BaseInputText from 'src/components/base/BaseInputText.vue'
 import BaseNotification from 'src/components/base/BaseNotification.vue'
-import { PageName } from 'src/router/routes'
 import { useAuthStore } from 'src/stores/authStore'
 import { IUser } from 'src/stores/types'
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useLoginForm } from './forms/loginForm'
 
+const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const loginForm = useLoginForm()
@@ -26,7 +26,9 @@ const login = async () => {
         isLoading.value = false
         if (user) {
             authStore.setUser(user)
-            router.push({ name: PageName.DASHBOARD_PAGE })
+
+            if (route.query.redirect) router.push(route.query.redirect as string)
+            else router.push({ name: 'DashboardPage' })
         }
     } catch (error: any) {
         notificationType.value = 'error'

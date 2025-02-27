@@ -1,20 +1,10 @@
-import MainLayout from 'src/view/layouts/MainLayout.vue';
-import CardsPage from 'src/view/pages/components/CardsPage.vue';
-import DrawerPage from 'src/view/pages/components/DrawerPage.vue';
-import TablePage from 'src/view/pages/components/TablePage.vue';
-import DashboardPage from 'src/view/pages/home/DashboardPage.vue';
-import LoginPage from 'src/view/pages/login/LoginPage.vue';
-import { RouteRecordRaw } from 'vue-router';
-
-export enum PageName {
-    LOGIN_PAGE = 'LOGIN_PAGE',
-
-    DASHBOARD_PAGE = 'DASHBOARD_PAGE',
-
-    CARDS_PAGE = 'CARDS_PAGE',
-    TABLE_PAGE = 'TABLE_PAGE',
-    DRAWER_PAGE = 'DRAWER_PAGE',
-}
+import MainLayout from 'src/view/layouts/MainLayout.vue'
+import CardsPage from 'src/view/pages/components/CardsPage.vue'
+import DrawerPage from 'src/view/pages/components/DrawerPage.vue'
+import TablePage from 'src/view/pages/components/TablePage.vue'
+import DashboardPage from 'src/view/pages/home/DashboardPage.vue'
+import LoginPage from 'src/view/pages/login/LoginPage.vue'
+import { RouteRecordRaw } from 'vue-router'
 
 export const routes: Array<RouteRecordRaw> = [
     {
@@ -22,7 +12,7 @@ export const routes: Array<RouteRecordRaw> = [
         children: [
             {
                 path: '/login',
-                name: PageName.LOGIN_PAGE,
+                name: 'LoginPage',
                 component: LoginPage,
                 meta: {
                     public: true,
@@ -36,11 +26,9 @@ export const routes: Array<RouteRecordRaw> = [
         children: [
             {
                 path: 'dashboard',
-                name: PageName.DASHBOARD_PAGE,
+                name: 'DashboardPage',
                 component: DashboardPage,
-                meta: {
-                    public: true,
-                },
+                meta: {},
             },
         ],
     },
@@ -50,28 +38,22 @@ export const routes: Array<RouteRecordRaw> = [
         children: [
             {
                 path: 'card',
-                name: PageName.CARDS_PAGE,
+                name: 'CardsPage',
                 component: CardsPage,
-                meta: {
-                    public: true,
-                },
+                meta: {},
             },
             {
                 path: 'table',
-                name: PageName.TABLE_PAGE,
+                name: 'TablePage',
                 component: TablePage,
-                meta: {
-                    public: true,
-                },
+                meta: {},
             },
             {
                 path: 'drawer',
-                name: PageName.DRAWER_PAGE,
+                name: 'DrawerPage',
                 component: DrawerPage,
-                meta: {
-                    public: true,
-                },
+                meta: {},
             },
         ],
     },
-];
+]

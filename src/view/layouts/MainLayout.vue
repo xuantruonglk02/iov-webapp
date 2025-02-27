@@ -22,26 +22,22 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <el-container class="container-root flex-column">
+    <v-layout class="">
         <Header />
-        <el-container>
+        <div>
             <Aside />
-            <el-row class="container-main" :style="`width: calc(100% - ${appStore.asideWidth}px)`">
+            <v-main>
                 <router-view v-slot="{ Component }">
                     <component :is="Component" />
                 </router-view>
-            </el-row>
-        </el-container>
-    </el-container>
+            </v-main>
+        </div>
+    </v-layout>
 </template>
 
 <style scoped lang="scss">
-.container-root {
-    background-color: $color-background-content;
-    padding: 0 6px;
-}
-
-.container-main {
-    background-color: $color-background-main;
+.v-main {
+    width: 100vw;
+    height: 100vh;
 }
 </style>

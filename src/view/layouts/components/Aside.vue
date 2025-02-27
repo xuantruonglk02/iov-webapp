@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { House } from '@element-plus/icons-vue';
-import { useAppStore } from 'src/stores/appStore.ts';
-import { useRouter } from 'vue-router';
+import { House } from '@element-plus/icons-vue'
+import { useAppStore } from 'src/stores/appStore.ts'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
-const appStore = useAppStore();
+const router = useRouter()
+const appStore = useAppStore()
 
 const aside = [
     {
@@ -32,47 +32,37 @@ const aside = [
         icon: House,
         to: 'DrawerPage',
     },
-];
+]
 </script>
 
 <template>
-    <div
-        :style="`height: calc(100vh - ${appStore.headerHeight}px); width: ${appStore.asideWidth}px`"
-    >
-        <el-aside class="aside-ctn position-fixed h-100 z-1" :width="`${appStore.asideWidth}px`">
-            <el-scrollbar>
-                <el-menu :collapse="appStore.asideCollapsed">
-                    <el-menu-item
-                        v-for="(item, index) in aside"
-                        :key="index"
-                        :index="index"
-                        @click="router.push({ name: item.to })"
-                    >
-                        <!-- <el-icon>item.icon</el-icon> -->
-                        <el-icon><House /></el-icon>
-                        <template #title>{{ item.name }}</template>
-                    </el-menu-item>
-                    <el-divider />
-                    <el-menu-item
-                        index="index"
-                        @click="router.push({ name: 'DashboardPage' })"
-                    >
-                        <!-- <el-icon>item.icon</el-icon> -->
-                        <el-icon><House /></el-icon>
-                        <template #title>About</template>
-                    </el-menu-item>
-                    <el-menu-item
-                        index="index"
-                        @click="router.push({ name: 'DashboardPage' })"
-                    >
-                        <!-- <el-icon>item.icon</el-icon> -->
-                        <el-icon><House /></el-icon>
-                        <template #title>App Gallery</template>
-                    </el-menu-item>
-                </el-menu>
-            </el-scrollbar>
-        </el-aside>
-    </div>
+    <v-navigation-drawer>
+        <el-scrollbar>
+            <el-menu :collapse="appStore.asideCollapsed">
+                <el-menu-item
+                    v-for="(item, index) in aside"
+                    :key="index"
+                    :index="index"
+                    @click="router.push({ name: item.to })"
+                >
+                    <!-- <el-icon>item.icon</el-icon> -->
+                    <el-icon><House /></el-icon>
+                    <template #title>{{ item.name }}</template>
+                </el-menu-item>
+                <el-divider />
+                <el-menu-item index="index" @click="router.push({ name: 'DashboardPage' })">
+                    <!-- <el-icon>item.icon</el-icon> -->
+                    <el-icon><House /></el-icon>
+                    <template #title>About</template>
+                </el-menu-item>
+                <el-menu-item index="index" @click="router.push({ name: 'DashboardPage' })">
+                    <!-- <el-icon>item.icon</el-icon> -->
+                    <el-icon><House /></el-icon>
+                    <template #title>App Gallery</template>
+                </el-menu-item>
+            </el-menu>
+        </el-scrollbar>
+    </v-navigation-drawer>
 </template>
 
 <style scoped lang="scss">

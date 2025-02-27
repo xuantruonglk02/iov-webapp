@@ -2,7 +2,7 @@ import MainLayout from 'src/view/layouts/MainLayout.vue'
 import CardsPage from 'src/view/pages/components/CardsPage.vue'
 import DrawerPage from 'src/view/pages/components/DrawerPage.vue'
 import TablePage from 'src/view/pages/components/TablePage.vue'
-import DashboardPage from 'src/view/pages/home/DashboardPage.vue'
+import DashboardPage from 'src/view/pages/installation-dashboard/DashboardPage.vue'
 import LoginPage from 'src/view/pages/login/LoginPage.vue'
 import { RouteRecordRaw } from 'vue-router'
 
@@ -28,7 +28,9 @@ export const routes: Array<RouteRecordRaw> = [
                 path: 'dashboard',
                 name: 'DashboardPage',
                 component: DashboardPage,
-                meta: {},
+                meta: {
+                    public: true,
+                },
             },
         ],
     },

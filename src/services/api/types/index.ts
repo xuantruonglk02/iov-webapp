@@ -9,7 +9,6 @@ export interface IApiResponseBody<T> {
 export interface IApiResponseError {
     code: number
     message: string
-    data: null
 }
 
 export type IApiResponse<T> = AxiosResponse<IApiResponseBody<T>>

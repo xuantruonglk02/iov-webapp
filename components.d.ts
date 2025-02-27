@@ -19,6 +19,7 @@ declare module 'vue' {
     copy: typeof import('./src/components/base/BaseInputText copy.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElBtn: typeof import('element-plus/es')['ElBtn']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']

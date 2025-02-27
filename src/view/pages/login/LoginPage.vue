@@ -63,7 +63,7 @@ const login = async () => {
                         :disabled="isLoading"
                         :error-messages="loginForm.errors.value.password"
                     />
-                    <v-btn type="submit" :loading="isLoading">{{ $t('login.submit') }}</v-btn>
+                    <v-btn class="login-btn" type="submit" :loading="isLoading">{{ $t('login.submit') }}</v-btn>
                 </v-form>
             </div>
         </div>
@@ -92,5 +92,9 @@ const login = async () => {
         width: 100%;
         border-radius: 8px;
     }
+}
+.login-btn {
+    width: 100%;
+    height: 56px;
 }
 </style>

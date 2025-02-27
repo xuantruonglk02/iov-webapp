@@ -1,9 +1,7 @@
 @use '../variables' as vars;
 
-.v-btn {
-    width: 100% !important;
-    height: 56px !important;
-    border-radius: 8px !important;
+.v-btn:not(.v-btn--variant-text) {
+    border-radius: 6px !important;
     background-color: vars.$color-primary !important;
     color: white !important;
 }

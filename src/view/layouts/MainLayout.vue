@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useAppStore } from 'src/stores/appStore'
 import { useAuthStore } from 'src/stores/authStore'
 import { onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -8,7 +7,6 @@ import Header from './components/Header.vue'
 
 const route = useRoute()
 const router = useRouter()
-const appStore = useAppStore()
 const authStore = useAuthStore()
 
 onBeforeMount(() => {
@@ -22,16 +20,14 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <v-layout class="">
+    <v-layout>
         <Header />
-        <div>
-            <Aside />
-            <v-main>
-                <router-view v-slot="{ Component }">
-                    <component :is="Component" />
-                </router-view>
-            </v-main>
-        </div>
+        <Aside />
+        <v-main>
+            <router-view v-slot="{ Component }">
+                <component :is="Component" />
+            </router-view>
+        </v-main>
     </v-layout>
 </template>
 

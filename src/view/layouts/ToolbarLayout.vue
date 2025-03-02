@@ -21,6 +21,8 @@
 }
 .v-container {
     height: calc(100% - 56px);
+    margin: 0;
+    max-width: none;
     overflow-y: auto;
 }
 </style>

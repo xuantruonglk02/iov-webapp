@@ -19,7 +19,7 @@ const isDisplayNotification = ref(false)
 const notificationType = ref('success')
 const notificationMessage = ref('')
 
-const login = async () => {
+const onLogin = async () => {
     try {
         isLoading.value = true
         const user = (await loginForm.submit()) as IUser
@@ -28,7 +28,7 @@ const login = async () => {
             authStore.setUser(user)
 
             if (route.query.redirect) router.push(route.query.redirect as string)
-            else router.push({ name: 'DashboardPage' })
+            else router.push({ name: 'InstallationDashboardPage' })
         }
     } catch (error: any) {
         notificationType.value = 'error'
@@ -49,12 +49,11 @@ const login = async () => {
                 <span>{{ $t('login.subTitle') }}</span>
             </div>
             <div class="d-flex flex-column">
-                <v-form @submit.prevent="login()">
+                <v-form @submit.prevent="onLogin()">
                     <BaseInputText
                         v-model="loginForm.username.value"
                         :label="$t('common.base.labels.username')"
                         prepend-inner-icon="mdi-account"
-                        variant="outlined"
                         :disabled="isLoading"
                         :error-messages="loginForm.errors.value.username"
                     />

@@ -2,6 +2,14 @@
 import BaseSaleCard from 'src/components/base/BaseSaleCard.vue'
 import BaseToolbar from 'src/components/base/BaseToolbar.vue'
 import ToolbarLayout from 'src/view/layouts/ToolbarLayout.vue'
+import { ref } from 'vue'
+import DrawerCreateJob from './components/DrawerCreateJob.vue'
+
+const isOpeningCreateJobForm = ref(false)
+
+const onClickCreateJob = () => {
+    isOpeningCreateJobForm.value = true
+}
 </script>
 
 <template>
@@ -10,9 +18,11 @@ import ToolbarLayout from 'src/view/layouts/ToolbarLayout.vue'
             <BaseToolbar :title="$t('installation.installation')">
                 <template #actions>
                     <v-row class="toolbar-actions" align="center">
-                        <v-btn prepend-icon="mdi-plus-thick" variant="tonal">{{
-                            $t('common.buttons.add')
-                        }}</v-btn>
+                        <v-btn
+                            prepend-icon="mdi-plus-thick"
+                            @click="onClickCreateJob"
+                            >{{ $t('common.buttons.add') }}</v-btn
+                        >
                         <v-divider class="mx-2" vertical />
                         <v-btn icon="mdi-filter-variant" variant="text"></v-btn>
                     </v-row>
@@ -23,17 +33,11 @@ import ToolbarLayout from 'src/view/layouts/ToolbarLayout.vue'
             <div class="mb-2">{{ $t('installation.finished') }}</div>
             <v-row justify="start">
                 <v-col v-for="i in 5" :key="i">
-                    <v-sheet class="">
-                        <BaseSaleCard />
-                    </v-sheet>
+                    <BaseSaleCard />
                 </v-col>
             </v-row>
         </template>
     </ToolbarLayout>
-</template>
 
-<style scoped lang="scss">
-.v-col {
-    z-index: -1;
-}
-</style>
+    <DrawerCreateJob v-model="isOpeningCreateJobForm" />
+</template>

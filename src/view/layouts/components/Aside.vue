@@ -10,12 +10,12 @@ const aside = [
     {
         name: 'Home',
         icon: House,
-        to: 'DashboardPage',
+        to: 'InstallationDashboardPage',
     },
     {
         name: 'Dashboard',
         icon: House,
-        to: 'DashboardPage',
+        to: 'InstallationDashboardPage',
     },
     {
         name: 'Table',
@@ -50,12 +50,12 @@ const aside = [
                     <template #title>{{ item.name }}</template>
                 </el-menu-item>
                 <el-divider />
-                <el-menu-item index="index" @click="router.push({ name: 'DashboardPage' })">
+                <el-menu-item index="index" @click="router.push({ name: 'InstallationDashboardPage' })">
                     <!-- <el-icon>item.icon</el-icon> -->
                     <el-icon><House /></el-icon>
                     <template #title>About</template>
                 </el-menu-item>
-                <el-menu-item index="index" @click="router.push({ name: 'DashboardPage' })">
+                <el-menu-item index="index" @click="router.push({ name: 'InstallationDashboardPage' })">
                     <!-- <el-icon>item.icon</el-icon> -->
                     <el-icon><House /></el-icon>
                     <template #title>App Gallery</template>

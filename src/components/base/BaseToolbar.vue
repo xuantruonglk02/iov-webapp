@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-    <v-container class="toolbar">
+    <v-container>
         <v-row justify="space-between" align="center">
             <v-col>{{ title }}</v-col>
             <v-col class="toolbar-actions-ctn">
@@ -17,6 +17,8 @@ defineProps<{
 
 <style scoped lang="scss">
 .v-container {
+    max-width: none;
+    margin: 0;
     border-bottom: 1px solid $color-border-main;
 }
 .toolbar-actions-ctn {

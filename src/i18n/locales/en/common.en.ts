@@ -1,6 +1,8 @@
 export default {
     buttons: {
         add: 'Add',
+        cancel: 'Cancel',
+        save: 'Save',
     },
     base: {
         labels: {

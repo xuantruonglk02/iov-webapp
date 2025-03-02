@@ -11,6 +11,7 @@ const emit = defineEmits(['update:modelValue'])
 
 <template>
     <v-text-field
+        variant="outlined"
         :disabled="disabled"
         :error-messages="translateYupError(errorMessages)"
         @update:model-value="(value) => emit('update:modelValue', value)"

@@ -1,7 +1,14 @@
 @use '../variables' as vars;
 
-.v-btn:not(.v-btn--variant-text) {
-    border-radius: 6px !important;
-    background-color: vars.$color-primary !important;
-    color: white !important;
+.v-btn {
+    &:not(.v-btn--variant-text) {
+        border-radius: 6px !important;
+    }
+    &.v-btn--variant-tonal {
+        background-color: vars.$color-primary !important;
+        color: white !important;
+    }
+    &.v-btn--variant-outlined {
+        color: vars.$color-primary !important;
+    }
 }

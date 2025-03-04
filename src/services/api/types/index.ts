@@ -6,6 +6,8 @@ export interface IApiResponseBody<T> {
     data: T
 }
 
+export type IApiResponseListBody<R extends string, T> = Record<R, T> & { total_records: number }
+
 export interface IApiResponseError {
     code: number
     message: string

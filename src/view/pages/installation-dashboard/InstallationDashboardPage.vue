@@ -7,6 +7,10 @@ import DrawerCreateJob from './components/DrawerCreateJob.vue'
 
 const isOpeningCreateJobForm = ref(false)
 
+const fetchJobs = async () => {
+
+}
+
 const onClickCreateJob = () => {
     isOpeningCreateJobForm.value = true
 }

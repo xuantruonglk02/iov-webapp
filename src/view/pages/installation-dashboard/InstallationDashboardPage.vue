@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import BaseSaleCard from 'src/components/base/BaseSaleCard.vue'
-import BaseToolbar from 'src/components/base/BaseToolbar.vue'
 import { jobApiService } from 'src/services/api/jobApiService'
 import { IJob } from 'src/services/api/types/job'
+import BaseSaleCard from 'src/view/components/base/BaseSaleCard.vue'
+import BaseToolbar from 'src/view/components/base/BaseToolbar.vue'
 import ToolbarLayout from 'src/view/layouts/ToolbarLayout.vue'
 import { onMounted, ref } from 'vue'
 import DrawerCreateJob from './components/DrawerCreateJob.vue'

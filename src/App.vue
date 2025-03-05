@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref } from 'vue'
-import BaseNotification, { NotificationType } from './components/base/BaseNotification.vue'
 import { useAuthStore } from './stores/authStore'
+import BaseNotification, { NotificationType } from './view/components/base/BaseNotification.vue'
 
 declare global {
     interface Document {

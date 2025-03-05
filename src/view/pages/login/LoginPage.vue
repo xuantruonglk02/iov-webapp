@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import BaseInputPassword from 'src/components/base/BaseInputPassword.vue'
-import BaseInputText from 'src/components/base/BaseInputText.vue'
 import { IUser } from 'src/services/api/types/user'
 import { useAuthStore } from 'src/stores/authStore'
+import BaseInputPassword from 'src/view/components/base/BaseInputPassword.vue'
+import BaseInputText from 'src/view/components/base/BaseInputText.vue'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useLoginForm } from './forms/loginForm'

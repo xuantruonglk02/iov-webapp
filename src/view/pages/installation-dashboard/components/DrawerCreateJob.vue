@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseDrawer from 'src/components/base/BaseDrawer.vue'
-import BaseInputText from 'src/components/base/BaseInputText.vue'
+import BaseDrawer from 'src/view/components/base/BaseDrawer.vue'
+import BaseInputText from 'src/view/components/base/BaseInputText.vue'
 import { useCreateJobForm } from '../forms/createLobForm'
 
 const emit = defineEmits(['update:modelValue'])

@@ -1,7 +1,4 @@
 import MainLayout from 'src/view/layouts/MainLayout.vue'
-import CardsPage from 'src/view/pages/components/CardsPage.vue'
-import DrawerPage from 'src/view/pages/components/DrawerPage.vue'
-import TablePage from 'src/view/pages/components/TablePage.vue'
 import InstallationDashboardPage from 'src/view/pages/installation-dashboard/InstallationDashboardPage.vue'
 import LoginPage from 'src/view/pages/login/LoginPage.vue'
 import { RouteRecordRaw } from 'vue-router'
@@ -31,30 +28,6 @@ export const routes: Array<RouteRecordRaw> = [
                 meta: {
                     public: true,
                 },
-            },
-        ],
-    },
-    {
-        path: '/components',
-        component: MainLayout,
-        children: [
-            {
-                path: 'card',
-                name: 'CardsPage',
-                component: CardsPage,
-                meta: {},
-            },
-            {
-                path: 'table',
-                name: 'TablePage',
-                component: TablePage,
-                meta: {},
-            },
-            {
-                path: 'drawer',
-                name: 'DrawerPage',
-                component: DrawerPage,
-                meta: {},
             },
         ],
     },

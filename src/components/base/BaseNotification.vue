@@ -1,12 +1,14 @@
 <script setup lang="ts">
+export type NotificationType ='success' | 'error' | 'info' | 'warning'
+
 defineProps<{
-    type: 'success' | 'error' | 'info' | 'warning'
+    type: NotificationType
     message: string
 }>()
 
 const emit = defineEmits(['update:modelValue'])
 
-const getIcon = (type: string) => {
+const getIcon = (type: NotificationType) => {
     switch (type) {
         case 'info':
             return 'mdi-information'

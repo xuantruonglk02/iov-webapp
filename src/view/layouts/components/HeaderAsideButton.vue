@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { InfoFilled } from '@element-plus/icons-vue';
-import { useAppStore } from 'src/stores/appStore.ts';
+import { useAppStore } from 'src/stores/appStore.ts'
 
-const appStore = useAppStore();
+const appStore = useAppStore()
 
 const onClickAsideButton = () => {
-    appStore.toggleAsideButton();
-};
+    appStore.toggleAsideButton()
+}
 </script>
 
 <template>
-    <el-button :icon="InfoFilled" circle class="header-aside-btn" @click="onClickAsideButton" />
+    <v-btn icon="mdi-reorder-horizontal" variant="text" @click="onClickAsideButton" />
 </template>
-
-<style scoped lang="scss">
-.header-aside-btn {
-    border: none;
-}
-</style>

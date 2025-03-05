@@ -1,11 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { IJob } from 'src/services/api/types/job'
+
+defineProps<{
+    job: IJob
+}>()
+</script>
 
 <template>
     <v-card variant="outlined">
         <v-container>
             <v-row class="mb-4" align="center" no-gutters>
                 <v-avatar
-                    image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                    :image="job.segment_img"
                     class="me-2"
                 />
                 <v-col class="title d-flex flex-column">
@@ -14,23 +20,16 @@
                 </v-col>
             </v-row>
             <div class="card-img-ctn p-0 mb-4">
-                <img
-                    src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                    class="card-img"
-                />
+                <img :src="job.segment_img" alt="">
             </div>
             <v-row no-gutters>
                 <v-col class="d-flex flex-column">
-                    <span>70-1220</span>
-                    <span>3/22/2023 2:10:00 PM</span>
+                    <span><b>70-1220</b></span>
+                    <span>{{ job.installation_date }}</span>
                 </v-col>
             </v-row>
             <v-row class="my-6" no-gutters>
-                <span
-                    >a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
-                    a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
-                    a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a</span
-                >
+                <span>d e s c r i p t i o n</span>
             </v-row>
             <v-row justify="space-between" no-gutters>
                 <v-col>
@@ -49,13 +48,15 @@
 
 <style scoped lang="scss">
 .v-card {
-    width: 320px;
+    width: 100%;
     border: 1px solid $color-border-main;
     border-radius: 6px;
 
     &:hover {
         cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        box-shadow:
+            rgba(0, 0, 0, 0.16) 0px 3px 6px,
+            rgba(0, 0, 0, 0.23) 0px 3px 6px;
     }
 }
 .card-img-ctn {
@@ -67,7 +68,7 @@
     justify-content: center;
     overflow: hidden;
 
-    .card-img {
+    & > img {
         width: 100%;
     }
 }

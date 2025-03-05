@@ -22,7 +22,10 @@ export const useLoginForm = () => {
     const submit = handleSubmit(async (values) => {
         const { username, password } = values
         const response = await authApiService.login({ username, password })
-        return jwtDecode(response.data.access_token)
+        return {
+            user: jwtDecode(response.data.access_token),
+            accessToken: response.data.access_token,
+        }
     })
 
     return {

@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import HeaderNotification from './HeaderNotification.vue'
-import HeaderUser from './HeaderUser.vue'
 import HeaderAsideButton from './HeaderAsideButton.vue'
+import HeaderNotification from './HeaderNotification.vue'
 import HeaderSearchBar from './HeaderSearchBar.vue'
-import { useAppStore } from 'src/stores/appStore.ts'
-
-const appStore = useAppStore()
+import HeaderUser from './HeaderUser.vue'
 </script>
 
 <template>
     <v-app-bar flat>
-        <v-container>
+        <v-container class="header-ctn">
             <v-row justify="space-between" align="center">
                 <v-col>
                     <HeaderAsideButton />
@@ -36,6 +33,9 @@ const appStore = useAppStore()
 </template>
 
 <style scoped lang="scss">
+.header-ctn {
+    max-width: none;
+}
 .v-toolbar {
     border-bottom: 1px solid $color-border-main;
 }

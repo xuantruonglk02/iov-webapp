@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import BaseInputPassword from 'src/components/base/BaseInputPassword.vue'
 import BaseInputText from 'src/components/base/BaseInputText.vue'
-import BaseNotification from 'src/components/base/BaseNotification.vue'
 import { IUser } from 'src/services/api/types/user'
 import { useAuthStore } from 'src/stores/authStore'
 import { ref } from 'vue'
@@ -15,25 +14,21 @@ const loginForm = useLoginForm()
 
 const isLoading = ref(false)
 
-const isDisplayNotification = ref(false)
-const notificationType = ref('success')
-const notificationMessage = ref('')
-
 const onLogin = async () => {
     try {
         isLoading.value = true
-        const user = (await loginForm.submit()) as IUser
-        isLoading.value = false
-        if (user) {
-            authStore.setUser(user)
+        const data = (await loginForm.submit())
+        if (data) {
+            authStore.setUser(data.user as IUser)
+            authStore.setAccessToken(data.accessToken)
 
             if (route.query.redirect) router.push(route.query.redirect as string)
             else router.push({ name: 'InstallationDashboardPage' })
         }
     } catch (error: any) {
-        notificationType.value = 'error'
-        notificationMessage.value = error.message
-        isDisplayNotification.value = true
+        document.notify('error', error.message)
+    } finally {
+        isLoading.value = false
     }
 }
 </script>
@@ -67,12 +62,6 @@ const onLogin = async () => {
             </div>
         </div>
     </div>
-
-    <BaseNotification
-        v-model="isDisplayNotification"
-        :type="notificationType as 'success'"
-        :message="notificationMessage"
-    />
 </template>
 
 <style scoped lang="scss">

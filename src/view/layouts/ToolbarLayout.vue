@@ -5,7 +5,7 @@
         <div class="toolbar-ctn">
             <slot name="toolbar"></slot>
         </div>
-        <v-container>
+        <v-container class="toolbar-layout-content">
             <slot name="content"></slot>
         </v-container>
     </v-col>

@@ -40,7 +40,13 @@ onMounted(() => {
             </BaseToolbar>
         </template>
         <template #content>
-            <BaseTable :data="usersList" hide-default-footer />
+            <BaseTable :data="usersList" hide-default-footer :items-per-page="-1" class="h-100" />
         </template>
     </ToolbarLayout>
 </template>
+
+<style scoped lang="scss">
+:deep(.toolbar-layout-content) {
+    padding: 1px 0 0 0;
+}
+</style>

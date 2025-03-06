@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-    <v-data-table :items="data" hover></v-data-table>
+    <v-data-table :items="data" hover fixed-header></v-data-table>
 </template>
 
 <style scoped lang="scss">

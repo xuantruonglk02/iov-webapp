@@ -14,6 +14,7 @@ const fetchUsers = async () => {
         usersList.value = response.data
         console.log(response.data)
     } catch (error: any) {
+        console.error(error)
         document.notify('error', error.message)
     }
 }

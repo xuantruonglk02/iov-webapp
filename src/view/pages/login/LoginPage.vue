@@ -26,6 +26,7 @@ const onLogin = async () => {
             else router.push({ name: 'InstallationDashboardPage' })
         }
     } catch (error: any) {
+        console.error(error)
         document.notify('error', error.message)
     } finally {
         isLoading.value = false

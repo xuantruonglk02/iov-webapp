@@ -20,6 +20,7 @@ const fetchJobs = async () => {
         jobsList.value = response.data.jobs
         console.log(response.data.jobs)
     } catch (error: any) {
+        console.error(error)
         document.notify('error', error.message)
     }
 }
@@ -63,6 +64,7 @@ const deleteJob = async (jobId: number) => {
 
         fetchJobs()
     } catch (error: any) {
+        console.error(error)
         document.notify('error', error.message)
     }
 }

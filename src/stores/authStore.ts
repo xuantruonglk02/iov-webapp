@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', () => {
                 accessToken.value = accessTokenString
                 setAxiosAccessToken(accessTokenString)
             } catch (error) {
-                console.log(error)
+                console.error(error)
             }
         }
     }

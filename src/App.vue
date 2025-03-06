@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from './stores/authStore'
 import BaseNotification, { NotificationType } from './view/components/base/BaseNotification.vue'
 
@@ -9,6 +10,7 @@ declare global {
     }
 }
 
+const router = useRouter()
 const authStore = useAuthStore()
 
 const isDisplayNotification = ref(false)
@@ -17,6 +19,9 @@ const notificationMessage = ref('')
 
 onBeforeMount(() => {
     authStore.loadUserFromLocalStorage()
+
+    const tokenExp = (authStore.user as any).exp
+    if (Date.now() >= tokenExp * 1000) router.push({ name: 'LoginPage' })
 })
 
 onMounted(() => {

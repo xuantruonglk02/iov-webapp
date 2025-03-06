@@ -1,6 +1,7 @@
 import MainLayout from 'src/view/layouts/MainLayout.vue'
 import InstallationDashboardPage from 'src/view/pages/installation-dashboard/InstallationDashboardPage.vue'
 import LoginPage from 'src/view/pages/login/LoginPage.vue'
+import UsersPage from 'src/view/pages/user/UsersPage.vue'
 import { RouteRecordRaw } from 'vue-router'
 
 export const routes: Array<RouteRecordRaw> = [
@@ -25,9 +26,13 @@ export const routes: Array<RouteRecordRaw> = [
                 path: 'dashboard',
                 name: 'InstallationDashboardPage',
                 component: InstallationDashboardPage,
-                meta: {
-                    public: true,
-                },
+                meta: {},
+            },
+            {
+                path: 'users',
+                name: 'UsersPage',
+                component: UsersPage,
+                meta: {},
             },
         ],
     },

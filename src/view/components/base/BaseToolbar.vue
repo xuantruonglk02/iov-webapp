@@ -7,7 +7,7 @@ defineProps<{
 <template>
     <v-container>
         <v-row justify="space-between" align="center">
-            <v-col>{{ title }}</v-col>
+            <v-col class="toolbar-title">{{ title }}</v-col>
             <v-col class="toolbar-actions-ctn">
                 <slot name="actions"></slot>
             </v-col>
@@ -19,7 +19,10 @@ defineProps<{
 .v-container {
     max-width: none;
     margin: 0;
-    border-bottom: 1px solid $color-border-main;
+    border-bottom: 1px solid $color-border-primary;
+}
+.toolbar-title {
+    font-weight: 600;
 }
 .toolbar-actions-ctn {
     width: unset;

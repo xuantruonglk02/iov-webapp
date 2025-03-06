@@ -36,7 +36,7 @@ const emit = defineEmits(['update:modelValue'])
 .v-navigation-drawer__prepend {
     .v-container {
         padding: 8px;
-        border-bottom: 1px solid $color-border-main;
+        border-bottom: 1px solid $color-border-primary;
     }
 }
 </style>

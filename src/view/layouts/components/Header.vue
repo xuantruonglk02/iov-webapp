@@ -37,7 +37,7 @@ import HeaderUser from './HeaderUser.vue'
     max-width: none;
 }
 .v-toolbar {
-    border-bottom: 1px solid $color-border-main;
+    border-bottom: 1px solid $color-border-primary;
 }
 .header-actions-ctn {
     width: unset;

@@ -1,5 +1,5 @@
 export default {
-    installation: 'Installation',
+    title: 'Installation',
     finished: 'Finished',
     createJobForm: {
         title: 'Inspections Form',

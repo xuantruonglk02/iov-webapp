@@ -1,7 +1,7 @@
 import axiosInstance from './axios'
 import { BaseApiService } from './baseApiService'
 import { IApiResponse } from './types'
-import { ISearchJobsQuery, ISearchJobsResponseBody } from './types/job'
+import { IJob, ISearchJobsQuery, ISearchJobsResponseBody } from './types/job'
 
 class JobApiService extends BaseApiService {
     searchJobs(query: ISearchJobsQuery) {
@@ -9,6 +9,21 @@ class JobApiService extends BaseApiService {
             this.client.get<ISearchJobsResponseBody, IApiResponse<ISearchJobsResponseBody>>(
                 `${this.baseUrl}/search`,
                 { params: query },
+            ),
+        )
+    }
+    getJobDetail(jobId: number) {
+        return this.handler<IJob>(
+            this.client.get<IJob, IApiResponse<IJob>>(
+                `${this.baseUrl}/${jobId}`,
+            ),
+        )
+    }
+    deleteJobs(jobIds: number[]) {
+        return this.handler<null>(
+            this.client.post<null, IApiResponse<null>>(
+                `${this.baseUrl}/delete`,
+                { job_ids: jobIds },
             ),
         )
     }

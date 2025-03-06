@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { jobApiService } from 'src/services/api/jobApiService'
 import { IJob } from 'src/services/api/types/job'
-import BaseSaleCard from 'src/view/components/base/BaseSaleCard.vue'
+import BaseJobCard from 'src/view/components/base/BaseJobCard.vue'
 import BaseToolbar from 'src/view/components/base/BaseToolbar.vue'
 import ToolbarLayout from 'src/view/layouts/ToolbarLayout.vue'
 import { onMounted, ref } from 'vue'
 import DrawerCreateJob from './components/DrawerCreateJob.vue'
-import SaleOrderDetail from './components/SaleOrderDetail.vue'
+import JobDetail from './components/JobDetail.vue'
 
 const isOpeningCreateJobForm = ref(false)
-const isOpeningSaleOrderDetail = ref(false)
+const isOpeningJobDetail = ref(false)
 
 const jobsList = ref<IJob[]>([])
-const openingSaleOrder = ref<IJob | null>(null)
+const openingJob = ref<IJob | null>(null)
 
 const fetchJobs = async () => {
     try {
@@ -24,7 +24,50 @@ const fetchJobs = async () => {
     }
 }
 
-const onClickCreateJob = () => {
+const scrollToJob = (jobId: number) => {
+    const el = document.getElementById(`job_${jobId}`)
+    el?.scrollIntoView({ behavior: 'smooth' })
+}
+
+const openJobDetail = (jobId: number) => {
+    const targetJob = jobsList.value.find((job) => job.job_id === jobId)
+    if (!targetJob) return
+
+    openingJob.value = targetJob
+    isOpeningJobDetail.value = true
+
+    scrollToJob(targetJob.job_id)
+}
+
+const closeJobDetail = () => {
+    openingJob.value = null
+    isOpeningJobDetail.value = false
+}
+
+const openNextJob = (step: number) => {
+    const jobIndex = jobsList.value.findIndex((job) => job.job_id === openingJob.value?.job_id)
+    const targetJob = jobsList.value[jobIndex + step]
+    if (!targetJob) return
+
+    openingJob.value = targetJob
+
+    scrollToJob(targetJob.job_id)
+}
+
+const deleteJob = async (jobId: number) => {
+    try {
+        await jobApiService.deleteJobs([jobId])
+        document.notify('success', 'Delete job successfully')
+        isOpeningJobDetail.value = false
+        openingJob.value = null
+
+        fetchJobs()
+    } catch (error: any) {
+        document.notify('error', error.message)
+    }
+}
+
+const openCreateJobForm = () => {
     isOpeningCreateJobForm.value = true
 }
 
@@ -37,10 +80,10 @@ onMounted(() => {
     <v-row class="page-ctn" no-gutters>
         <ToolbarLayout>
             <template #toolbar>
-                <BaseToolbar :title="$t('installation.installation')">
+                <BaseToolbar :title="$t('installation.title')">
                     <template #actions>
                         <v-row class="toolbar-actions" align="center">
-                            <v-btn prepend-icon="mdi-plus-thick" @click="onClickCreateJob">{{
+                            <v-btn prepend-icon="mdi-plus-thick" @click="openCreateJobForm">{{
                                 $t('common.buttons.add')
                             }}</v-btn>
                             <v-divider class="mx-2" vertical />
@@ -56,20 +99,29 @@ onMounted(() => {
                         v-for="job in jobsList"
                         :key="job.job_id"
                         :cols="12"
-                        :sm="isOpeningSaleOrderDetail ? 12 : 6"
-                        :md="isOpeningSaleOrderDetail ? 6 : 4"
-                        :lg="isOpeningSaleOrderDetail ? 6 : 3"
-                        :xl="isOpeningSaleOrderDetail ? 4 : 3"
+                        :sm="isOpeningJobDetail ? 12 : 6"
+                        :md="isOpeningJobDetail ? 6 : 4"
+                        :lg="isOpeningJobDetail ? 6 : 3"
+                        :xl="isOpeningJobDetail ? 4 : 3"
                     >
-                        <BaseSaleCard :job="job" />
+                        <BaseJobCard
+                            :id="`job_${job.job_id}`"
+                            :job="job"
+                            :selected="openingJob?.job_id === job.job_id"
+                            @open="openJobDetail"
+                        />
                     </v-col>
                 </v-row>
             </template>
         </ToolbarLayout>
 
-        <SaleOrderDetail
-            v-if="isOpeningSaleOrderDetail && openingSaleOrder"
-            :job="openingSaleOrder"
+        <JobDetail
+            v-if="isOpeningJobDetail && openingJob"
+            :jobId="openingJob.job_id"
+            @close="closeJobDetail"
+            @previous="openNextJob(-1)"
+            @next="openNextJob(1)"
+            @delete="deleteJob"
         />
     </v-row>
 
@@ -81,7 +133,7 @@ onMounted(() => {
     height: 100%;
 
     & > .v-col:not(:first-of-type) {
-        border-left: 1px solid $color-border-main;
+        border-left: 1px solid $color-border-primary;
     }
 }
 </style>

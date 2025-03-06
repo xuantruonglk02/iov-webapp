@@ -14,6 +14,11 @@ const aside = [
         icon: 'mdi-tools',
         to: 'InstallationDashboardPage',
     },
+    {
+        title: 'Users',
+        icon: 'mdi-account',
+        to: 'UsersPage',
+    },
 ]
 </script>
 

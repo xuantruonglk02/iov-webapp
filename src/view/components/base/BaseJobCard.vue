@@ -3,42 +3,38 @@ import { IJob } from 'src/services/api/types/job'
 
 defineProps<{
     job: IJob
+    selected?: boolean
 }>()
+
+const emit = defineEmits(['open'])
 </script>
 
 <template>
-    <v-card variant="outlined">
+    <v-card variant="outlined" :class="selected ? 'selected' : ''">
         <v-container>
-            <v-row class="mb-4" align="center" no-gutters>
+            <v-row class="mb-4" align="start" no-gutters>
                 <v-avatar
                     :image="job.segment_img"
                     class="me-2"
                 />
-                <v-col class="title d-flex flex-column">
-                    <span><b>Sale Order : SOBU-TESLA</b></span>
-                    <span>Ticket No. : TN8927</span>
+                <v-col class="d-flex flex-column">
+                    <span><b>{{ job.vin_no }}</b></span>
+                    <span>{{ job.model }}</span>
+                    <span class="job-status">{{ job.job_status }}</span>
                 </v-col>
             </v-row>
             <div class="card-img-ctn p-0 mb-4">
                 <img :src="job.segment_img" alt="">
             </div>
-            <v-row no-gutters>
+            <v-row class="mb-4" no-gutters>
                 <v-col class="d-flex flex-column">
-                    <span><b>70-1220</b></span>
                     <span>{{ job.installation_date }}</span>
                 </v-col>
             </v-row>
-            <v-row class="my-6" no-gutters>
-                <span>d e s c r i p t i o n</span>
-            </v-row>
-            <v-row justify="space-between" no-gutters>
-                <v-col>
-                    <v-btn class="view-map-btn" variant="text">VIEW MAP</v-btn>
-                </v-col>
+            <v-row justify="end" no-gutters>
                 <v-col class="card-actions-ctn">
                     <v-row>
-                        <v-btn variant="text" icon="mdi-chevron-right-circle-outline"></v-btn>
-                        <v-btn variant="text" icon="mdi-trash-can-outline"></v-btn>
+                        <v-btn variant="text" icon="mdi-chevron-right-circle-outline" @click="emit('open', job.job_id)"></v-btn>
                     </v-row>
                 </v-col>
             </v-row>
@@ -49,8 +45,12 @@ defineProps<{
 <style scoped lang="scss">
 .v-card {
     width: 100%;
-    border: 1px solid $color-border-main;
+    border: 1px solid $color-border-primary;
     border-radius: 6px;
+    
+    &.selected {
+        border: 1px solid $color-primary !important;
+    }
 
     &:hover {
         cursor: pointer;
@@ -72,11 +72,11 @@ defineProps<{
         width: 100%;
     }
 }
-.view-map-btn {
-    color: $color-primary;
-}
 .card-actions-ctn {
     width: unset;
     flex: none;
+}
+.job-status {
+    color: $color-primary;
 }
 </style>

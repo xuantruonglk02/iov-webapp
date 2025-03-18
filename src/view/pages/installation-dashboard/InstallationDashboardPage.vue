@@ -73,6 +73,10 @@ const openCreateJobForm = () => {
     isOpeningCreateJobForm.value = true
 }
 
+const closeCreateJobForm = () => {
+    isOpeningCreateJobForm.value = false
+}
+
 onMounted(() => {
     fetchJobs()
 })
@@ -127,7 +131,10 @@ onMounted(() => {
         />
     </v-row>
 
-    <DrawerCreateJob v-model="isOpeningCreateJobForm" />
+    <DrawerCreateJob
+        v-model="isOpeningCreateJobForm"
+        @close="closeCreateJobForm"
+    />
 </template>
 
 <style scoped lang="scss">

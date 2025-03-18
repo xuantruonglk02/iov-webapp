@@ -1,10 +1,14 @@
 import { IApiResponseListBody } from '.'
 
+export enum JobStatus {
+    NEW = 'New',
+}
+
 export interface IJob {
     job_id: number
     imei_no: string
     vin_no: string
-    job_status: string
+    job_status: JobStatus
     model: string
     segment_img: string
     installation_date: string

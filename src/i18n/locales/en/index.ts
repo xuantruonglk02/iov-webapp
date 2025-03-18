@@ -3,7 +3,7 @@ import { yupEn } from 'src/plugins/yup/locales/en'
 import { fields } from 'src/plugins/yup/locales/fields.en'
 import installationEn from './installation.en'
 import loginEn from './login.en'
-import usersEn from './users.en'
+import userEn from './user.en'
 
 export default {
     yup: yupEn,
@@ -11,5 +11,5 @@ export default {
     common: commonEn,
     login: loginEn,
     installation: installationEn,
-    users: usersEn,
+    user: userEn,
 }

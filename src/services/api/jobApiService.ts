@@ -14,17 +14,19 @@ class JobApiService extends BaseApiService {
     }
     getJobDetail(jobId: number) {
         return this.handler<IJob>(
-            this.client.get<IJob, IApiResponse<IJob>>(
-                `${this.baseUrl}/${jobId}`,
-            ),
+            this.client.get<IJob, IApiResponse<IJob>>(`${this.baseUrl}/${jobId}`),
+        )
+    }
+    createJob(data: any) {
+        return this.handler<IJob>(
+            this.client.get<IJob, IApiResponse<IJob>>(`${this.baseUrl}/create`, data),
         )
     }
     deleteJobs(jobIds: number[]) {
         return this.handler<null>(
-            this.client.post<null, IApiResponse<null>>(
-                `${this.baseUrl}/delete`,
-                { job_ids: jobIds },
-            ),
+            this.client.post<null, IApiResponse<null>>(`${this.baseUrl}/delete`, {
+                job_ids: jobIds,
+            }),
         )
     }
 }

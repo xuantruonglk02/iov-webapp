@@ -7,13 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    BaseDrawer: typeof import('./src/view/components/base/BaseDrawer.vue')['default']
-    BaseInputPassword: typeof import('./src/view/components/base/BaseInputPassword.vue')['default']
-    BaseInputText: typeof import('./src/view/components/base/BaseInputText.vue')['default']
-    BaseNotification: typeof import('./src/view/components/base/BaseNotification.vue')['default']
-    BaseSaleCard: typeof import('./src/view/components/base/BaseSaleCard.vue')['default']
-    BaseTable: typeof import('./src/view/components/base/BaseTable.vue')['default']
-    BaseToolbar: typeof import('./src/view/components/base/BaseToolbar.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
